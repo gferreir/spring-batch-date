@@ -1,0 +1,11 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: job-date
+spec:
+  template:
+    spec:
+      restartPolicy: Never
+      containers:
+        - name: date-job
+          image: #nome imagem
