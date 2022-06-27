@@ -1,8 +1,13 @@
 FROM registry.access.redhat.com/ubi8/openjdk-11:1.13
 
-COPY pom.xml /home/jboss
-COPY src /home/jboss
+COPY . /home/jboss
+
+USER root
 
 RUN mvn clean package
 
-ENTRYPOINT [ "java", "-jar", target/app.jar ]
+WORKDIR /home/jboss
+
+USER 185
+
+ENTRYPOINT [ "java", "-jar", "target/app.jar" ]

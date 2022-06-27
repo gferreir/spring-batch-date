@@ -15,6 +15,9 @@
 	<description>Date example</description>
 	<properties>
 		<java.version>11</java.version>
+		<maven.compiler.source>11</maven.compiler.source>
+ 		<maven.compiler.target>11</maven.compiler.target>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -35,10 +38,24 @@
 		<finalName>app</finalName>
 		<plugins>
 			<plugin>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-maven-plugin</artifactId>
+					<groupId>org.springframework.boot</groupId>
+					<artifactId>spring-boot-maven-plugin</artifactId>
+					<configuration>
+							<mainClass>com.structure.batch.dateexample.DateExampleApplication</mainClass>
+					</configuration>
+					<executions>
+							<execution>
+									<goals>
+											<goal>repackage</goal>
+									</goals>
+							</execution>
+					</executions>
+			</plugin>
+			<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-resources-plugin</artifactId>
+					<version>3.1.0</version>
 			</plugin>
 		</plugins>
 	</build>
-
 </project>
